@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <script src="https://code.angularjs.org/1.8.2/angular.min.js"></script>
+    <script src="watchers&di.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div ng-controller="watchercon" ,ng-init="init()">
+        <input type="text" ng-click='addEventListener()' ng-model="name"/>
+        <button type="button" ng-click="callApply()" >Apply</button>
+    </div>
+    <button type="button" id="mybtn" >digest</button>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <script src="https://code.angularjs.org/1.8.2/angular.min.js"></script>
+    <script src="filters.js"></script>
+
+</head>
+<body ng-app="myApp" ng-controller="filtercon" >
+  <!-- uppercase and same as lowercase filter -->
+     <div>    
+         <input type="text" ng-model="username"></br>
+         {{ "name:"+username |uppercase}}
+   </div> 
+   <!-- date filter -->
+    <div ng-init="Date = 423234234888 ">
+        <input type="text" ng-model="Date"> 
+        Default date: {{Date| date}} <br />
+        Year: {{Date | date:'yyyy'}} <br />
+    </div>
+
+    <h1>AngularJS Number Filter Demo: </h1>
+    Enter Price: <input type="number" ng-model="Price" /> <br />
+    100000 | number = {{100000 | number}} <br />
+    Price | number = {{Price | number}} <br />
+    Price | number:4 = {{Price | number:4}} <br />
+    Price | number = <span ng-bind="Price | number"></span>
+
+    <table border="1">
+        <thead>
+          <tr>
+            <th>name</th>
+            <th>age</th>
+            <th>salary</th>
+          
+          </tr>
+        </thead>
+        <tbody>
+            <!-- filter use only with array filter according to us -->
+          <tr ng-repeat="n in names |filter : 'H'">
+            <td>{{n.name}}</td>
+            <td>{{n.age}}</td>
+            <td >{{n.salary}}</td>
+           
+          </tr>
+        </tbody>
+</body>
+</html>

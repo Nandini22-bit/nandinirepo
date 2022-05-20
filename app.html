@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <script src="https://code.angularjs.org/1.8.2/angular.min.js"></script>
+        <script src="app.js"></script>
+       <style>  
+.normal {  
+    color:white;  
+    background-color:grey;  
+    padding:20px;  
+    font-family:"Courier New";  
+}  
+.medium {  
+    color:white;  
+    background-color:brown;  
+    padding:30px;  
+    font-family:"Courier New";  
+}  
+.advance {  
+    background-color:red;  
+    padding:40px;  
+    font-family:Verdana;  
+}  
+</style> 
+      </head>
+<body>
+    <div ng-app="myApp" ng-controller="namesCtrl" ng-init=" imgagesrc='img/c.jpg'">
+
+        <ul>
+           <!-- ng repeat directive -->
+          <li ng-repeat="x in names | filter : 'j'">
+            {{ x.name + '      ' + x.lastname + '   , ' + x.country }}
+          </li>
+    
+         </li> 
+        </ul> 
+        <!-- model and bind directive -->
+        <!-- <p>Name: <input type="text" ng-model="name"></p>
+       <p ng-bind="name"></p>
+
+        <img ng-src="{{imgagesrc}}">
+        <div ng-app="myApp" ng-init=" imgagesrc='img/c.jpg'">
+          <img ng-src="{{imgagesrc}}">
+       </div> -->
+       <!-- ng-class Directive -->
+       <!-- <p>Choose a class:</p>  
+          <select ng-model="home">  
+          <option value="normal">Normal</option>  
+          <option value="medium">Medium</option>  
+          <option value="advance">Advance</option>  
+          </select>  
+          <div ng-class="home">  
+            <h1>Welcome To JavaTpoint!</h1>  
+            <p>A solution of all technologies!</p>  
+          </div>  
+        </div> -->
+    
+          <p><input type="checkbox" ng-model="check">HIDE</p>
+          <p><input type="checkbox" ng-model="show">show</p>
+        <table border="1">
+          <thead>
+            <tr>
+              <th>name</th>
+              <th>age</th>
+              <th ng-hide="check">salary</th>
+              <th ng-show="check">salary</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="n in names">
+              <td>{{n.name}}</td>
+              <td>{{n.age}}</td>
+              <td  ng-hide="check">{{n.salary}}</td>
+              <td  ng-show="show">****</td>
+            </tr>
+          </tbody>
+        </table>
+     
+        </div>
+         
+</body>
+
+</html>  

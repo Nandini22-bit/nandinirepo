@@ -1,0 +1,33 @@
+$scope.GetRecords = function(){
+    $scope.page_number += 1;
+ 
+    $http.get("https://jsonplaceholder.typicode.com/posts").then(function(response){
+     
+    var result = getNRecords(response.data, $scope.page_size, $scope.page_number);
+    $scope.user = $scope.user.concat(result);
+    //generateReport(result);
+       
+
+    })
+}
+$scope.GetRecords();
+
+function generateReport(resp){
+    for(var i =0 ; i < resp.length; i++){
+        $scope.user.push(resp[i]);            
+    }
+}
+
+
+function getNRecords(user, page_size, page_number) {
+return user.slice((page_number - 1) * page_size, page_number * page_size);
+}
+
+$scope.loadMore = function(){
+    $scope.GetRecords();
+}
+
+})
+
+
+

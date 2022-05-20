@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://code.angularjs.org/1.8.2/angular.min.js"></script>
+  <script src="qservice.js"></script>
+    <title>Document</title>
+</head>
+
+  
+<body ng-app="myApp" >
+    <div ng-controller="user"> 
+        <table >
+            <thead>
+            <tr>
+              <th  align="left">id</th>
+              <th  align="left">body</th>
+              <th align="left">title</th>
+           
+
+            </tr>
+        </thead>
+            <tbody>
+            <tr ng-repeat="i in finallData" >
+             <td >{{i.id}}</td>
+             <td>{{i.title}}</td>
+             <td>{{i.body}}</td>
+            </tr>
+           
+            </tbody>
+        </table>
+
+    <button id="loadmore" ng-click="loadMore();" style="color:red">Load More</button>
+</div>
+</div>
+  
+</body>
+</html>

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://code.angularjs.org/1.8.2/angular.min.js"></script>
+    <script src="decorator.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <body ng-app="myApp" ng-controller="myctrl as con">
+        <div ng-bind="con.date | date:'fullDate'"></div>
+      </body>
+</body>
+</html>

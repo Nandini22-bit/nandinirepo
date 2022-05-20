@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.angularjs.org/1.8.2/angular.min.js"></script>
+    <script src="cutomfilter.js"></script>
+    <title>Document</title>
+</head>
+<body ng-app="myApp" ng-controller="customfiltercon" >
+    
+    <h1>filter by age</h1>
+    <ul>
+        <li ng-repeat="seniorCitizen in persons | seniorCitizenFilter:seniorCitizen.age"> Name : {{ seniorCitizen .name}} , Age: {{ seniorCitizen .age}}
+        </li>
+    </ul>
+    <h1>filter by name </h1>
+    <ul>
+        <li ng-repeat="seniorCitizen in persons | seniorCitizenFiltername:seniorCitizen.name"> Name : {{ seniorCitizen .name}} , Age: {{ seniorCitizen .age}}
+        </li>
+    </ul>
+</body>
+</html> 

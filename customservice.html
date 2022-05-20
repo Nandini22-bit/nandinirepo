@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <script src="https://code.angularjs.org/1.8.2/angular.min.js"></script>
+    <title>Document</title>
+    <script src="customservice.js"></script>
+    <style>
+        div {
+            width: 200px;
+            position: relative;
+          }
+          
+          input {
+            width: 20%;
+          }
+          li{
+              list-style: none;
+          }
+          span {
+          
+            right: 2px;
+            top: 2px;
+            margin: -22px;
+            cursor: pointer;
+          }
+          </style>
+</head>
+<body ng-controller="myCtrl">
+
+   
+    <input type="text" placeholder="search here" ng-model="searchText">
+   <span ng-show="searchText" ng-click="searchText='';">X</span>
+
+   </br></br>
+
+  
+   <table border="1">  
+    <thead>  
+        <tr>  
+           <th colspan="2">Name</th>
+            <th>Age</th>  
+             <th> email  </th>  
+             <th >phone</th>  
+          
+            
+        </tr>  
+        <tr>
+            <th>firstname</th>
+            <th>lastname</th>
+        </tr>
+    </thead>  
+    <tbody>  
+        <!--seach all data from  array  <tr ng-repeat="u in names|myTableFilter:searchText">   -->
+
+            <tr ng-repeat="u in myService|myTableFilter:searchText">
+        <td>
+          <ul>
+          <li ng-repeat="e in u.name ">{{e.first}} </li>
+         </ul>
+       </td>
+         <td>
+            <ul>
+            <li ng-repeat="e in u.name">{{e.last}} </li>
+            </ul>
+         </td>
+            <td>{{u.age}}</td>  
+             <td>{{u.email}}</td>  
+             <td>{{u.phone }}</td>  
+             <!-- when record not found in array -->
+            <tr ng-show="(names| myTableFilter:searchText).length==0">
+              <td>No Result Found</td>
+            </tr>
+    
+                
+        </tr>  
+   
+    </tbody>  
+</table>
+ 
+    
+
+</body>
+</html>

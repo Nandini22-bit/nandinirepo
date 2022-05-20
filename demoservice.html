@@ -1,0 +1,40 @@
+<html>
+<head>
+   <title>Angular JS Services</title>
+   <script src="https://code.angularjs.org/1.8.2/angular.min.js"></script>
+</head>
+<body>
+   <h2>AngularJS Hello Application</h2>
+   <div ng-app="mainApp" ng-controller="CalcController">
+      <p>Enter a number: <input type="number" ng-model="number" />
+      <button ng-click="square()">X<sup>2</sup></button>
+      <p>Result: {{result}}</p>
+   </div>
+   <script>
+      var mainApp = angular.module("mainApp", []);
+      
+      mainApp.service('CalcService', function(){
+       
+       this.square = function(a) {
+           console.log("in")
+       return a*a;
+    }
+ });
+
+      mainApp.controller('CalcController', function($scope, CalcService) {
+            $scope.square = function() {
+            $scope.result = CalcService.square($scope.number);
+         }
+      });
+      mainApps.factory('MathServices', function() {    
+         var factory = {}; 
+         factory.multiply = function(a, b) {
+            return a * b
+         }
+         return factory;
+      });
+ 
+   
+   </script>
+</body>
+</html>

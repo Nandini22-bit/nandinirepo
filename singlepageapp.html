@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.angularjs.org/1.8.2/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.2.8/angular-route.min.js" ></script>
+
+    <title>Document</title>
+</head>
+<body>
+    
+   
+    <a href="#!home">Home</a>
+    <a href="#!second/1">secondpage</a>
+     <div ng-view></div>
+<script>
+var app =angular.module("myApp",["ngRoute"]);
+
+
+app.config(function($routeProvider) {
+   $routeProvider.when('/home', {
+     templateUrl : 'home.html',
+    controller :'HomeController'
+   }).when('/second/:topicId', {
+     templateUrl : 'second.html',
+     controller :'secondController'
+   })
+ .otherwise({redirectTo: '/'});
+ });
+ 
+app.controller('HomeController', function($scope) {
+   $scope.message = 'Hello from HomeController';
+ });
+ 
+ app.controller('secondController', function($scope,$routeParams) {
+
+    $scope.tutorialid=$routeParams.topicId;
+   $scope.message = 'Hello from secondController';
+ });
+</script>
+</body>
+</html>

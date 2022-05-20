@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://code.angularjs.org/1.8.2/angular.min.js"></script>
+    <script src="maskfilter.js"></script>
+
+    <title>Document</title>
+</head>
+
+<body ng-app="myApp">
+    <div ng-controller="myController">
+        STRING TO PASSWORD: <input type="text" placeholder="search here" ng-model="searchText">
+        {{searchText|mask}}
+
+        <input type="text" name="arrExample" ng-model="arrInput">
+
+        <br><br>
+        Array = {{arr}}<br><br>
+        <button  ng-click='submit()' >
+            Click to push
+        </button>
+
+    </div>
+
+
+
+
+
+
+
+
+</body>
+
+</html>
