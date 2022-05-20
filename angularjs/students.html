@@ -1,0 +1,65 @@
+<style>
+    table {
+
+        border-collapse: collapse;
+    }
+
+    table th,
+    table td {
+        padding: 3px;
+    }
+
+    table th:hover {
+        cursor: pointer;
+    }
+
+    .arrow-down:after,
+    .arrow-up:after {
+        content: ' ';
+        position: relative;
+        left: 2px;
+        border: 8px solid transparent;
+    }
+
+    .arrow-down:after {
+        top: 10px;
+        border-top-color: black;
+    }
+
+    .arrow-up:after {
+        bottom: 15px;
+        border-bottom-color: black;
+    }
+
+    .arrow-down,
+    .arrow-up {
+        padding-right: 10px;
+    }
+</style>
+<table border="1">
+    <thead>
+
+        <tr>
+            <th ng-click='sortColumn("id")' ng-class='sortClass("id")'>Id</th>
+            <th ng-click='sortColumn("name")' ng-class='sortClass("name")'>Name</th>
+            <th ng-click='sortColumn("age")' ng-class='sortClass("age")'>Age</th>
+            <th ng-click='sortColumn("email")' ng-class='sortClass("email")'>email</th>
+            <th  ng-click='sortColumn("phone")' ng-class='sortClass("phone")'>phone</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!--seach all data from  array  <tr ng-repeat="u in names|myTableFilter:searchText">   -->
+
+        <tr ng-repeat="u in names|orderBy:column:reverse  track by $index">
+
+            <td>{{u.id}}</td>
+            <td>{{u.name}}</td>
+            <td>{{u.age}}</td>
+            <td>{{u.email}}</td>
+            <td>{{u.phone }}</td>
+
+
+        </tr>
+
+    </tbody>
+</table>

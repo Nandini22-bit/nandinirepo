@@ -1,0 +1,72 @@
+<style>
+  .requried {
+    color: #f00;
+  }
+</style>
+
+<div>
+  <form name="form" class="css-form" novalidate>
+   <div>   
+      <label>Name:
+    <input id="name"  validation inputonlystring="true"  type="text" ng-model="user.name" name="Name"  />
+  </label>
+  <span  style="color:Red"  id="span2"></span>
+  </div>
+
+<div>
+  <label class="control-label" for="phoneNumber">Phone Number:</label>
+
+  <input type="text" name="phoneNumber"    numberonly="true" inputonlynumber="true" validation inputonlynumberandstring="true"
+    placeholder="etner the number" ng-model="phoneNumber" required="true" />
+    <span  style="color:Red"  id="span1"></span>
+  <!-- <span style="color:Red" ng-show="form.$submitted || form.phoneNumber.$touched">
+    <span ng-show="form.phoneNumber.$error.required" class="required">Tell us your phone</span>
+    <span style="color:Red" ng-show="form.phoneNumber.$error.inputonlynumberandstring" class="required">this patternis not valid phone.</span>
+  </span> -->
+
+</div>  
+
+    <label>E-mail:
+      <input type="email" validation inputonlyemail="true" ng-model="user.email" id="email" name="uEmail" required="true" />
+    </label>
+    <span  style="color:Red"  id="span"></span>
+  
+
+
+
+<div>
+  <label>Password </label>
+  <input type="text" passwordValidation="true" ng-model="password" placeholder="password"
+                            name="password" ng-maxlength="10" ng-minlength="8" validate ng-required="true" /><br>
+                        <span ng-show="form.password.$touched && form.password.$error.required" class="required">
+                            password is required
+                        </span>
+                        <span ng-show="form.password.$touched && form.password.$error.maxlength" class="required">
+                            max 12
+                        </span>
+                        <span ng-show="form.password.$touched && form.password.$error.minlength" class="required">
+                            min 10
+                        </span>
+                        <span ng-show="form.password.$error.pattern" style="color:red">
+                            Not valid password.
+                        </span>
+</div>
+<div>
+  <label for="confirmPassword">ConfirmPassword </label>
+   <input type="text" passwordValidation="true" ng-model="repass" placeholder="Confirm password"
+                            ng-keyup="compare(repass)" nospaceallow="true" name="repass" ng-required="true"
+                            validate />
+
+                    
+                        <span   ng-show="isconfirm || form.repass.$dirty "
+                            ng-class="{true:'green',false:'red'}[isconfirm]">
+                            Password {{isconfirm==true?'':'not'}} match
+                        </span>
+</div>
+
+
+<input type="button" ng-click="reset(form)" value="Reset" />
+<input type="submit" ng-click="update(user)" value="Save" />
+</form>
+
+</div>

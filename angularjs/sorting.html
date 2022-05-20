@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <style>
+        table{
+        
+         border-collapse: collapse;
+        }
+        table th,table td{
+         padding: 3px;
+        }
+        
+        table th:hover{
+         cursor: pointer;
+        }
+        
+        .arrow-down:after,.arrow-up:after{
+         content: ' ';
+         position: relative;
+         left: 2px;
+         border: 8px solid transparent;
+        }
+        
+        .arrow-down:after{
+         top: 10px;
+         border-top-color: black;
+        }
+        
+        .arrow-up:after{
+         bottom: 15px;
+         border-bottom-color: black;
+        }
+        
+        .arrow-down,.arrow-up{
+         padding-right: 10px;
+        }
+        </style>
+      
+    <title>Document</title>
+</head>
+<body>
+    <table border='1'>
+        <tr >
+         <th ng-click='sortColumn("sno")' ng-class='sortClass("sno")'>S.no</th>
+         <th ng-click='sortColumn("name")' ng-class='sortClass("name")'>Name</th>
+         <th ng-click='sortColumn("age")' ng-class='sortClass("age")'>Age</th>
+         <th ng-click='sortColumn("gender")' ng-class='sortClass("gender")'>Gender</th>
+        </tr>
+        <tr ng-repeat='f in friends|orderBy:column:reverse'>
+         <td width='20%' align='center'>{{f.sno}}</td>
+         <td width='35%' align='center'>{{f.name}}</td>
+         <td width='20%' align='center'>{{f.age}}</td>
+         <td width='25%' align='center'>{{f.gender}}</td>
+        </tr>
+       </table>
+</body>
+</html>
